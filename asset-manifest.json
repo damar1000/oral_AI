@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/damar1000.github.io/oral_ai/static/css/main.bc9ea77c.css",
-    "main.js": "/damar1000.github.io/oral_ai/static/js/main.0c52a03b.js",
-    "index.html": "/damar1000.github.io/oral_ai/index.html",
-    "main.bc9ea77c.css.map": "/damar1000.github.io/oral_ai/static/css/main.bc9ea77c.css.map",
-    "main.0c52a03b.js.map": "/damar1000.github.io/oral_ai/static/js/main.0c52a03b.js.map"
+    "main.css": "/oral_ai/static/css/main.bc9ea77c.css",
+    "main.js": "/oral_ai/static/js/main.0c52a03b.js",
+    "index.html": "/oral_ai/index.html",
+    "main.bc9ea77c.css.map": "/oral_ai/static/css/main.bc9ea77c.css.map",
+    "main.0c52a03b.js.map": "/oral_ai/static/js/main.0c52a03b.js.map"
   },
   "entrypoints": [
     "static/css/main.bc9ea77c.css",
