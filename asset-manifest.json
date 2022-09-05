@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/oral_ai/static/css/main.bc9ea77c.css",
-    "main.js": "/oral_ai/static/js/main.0c52a03b.js",
+    "main.css": "/oral_ai/static/css/main.e9348d48.css",
+    "main.js": "/oral_ai/static/js/main.0e7e05a3.js",
     "index.html": "/oral_ai/index.html",
-    "main.bc9ea77c.css.map": "/oral_ai/static/css/main.bc9ea77c.css.map",
-    "main.0c52a03b.js.map": "/oral_ai/static/js/main.0c52a03b.js.map"
+    "main.e9348d48.css.map": "/oral_ai/static/css/main.e9348d48.css.map",
+    "main.0e7e05a3.js.map": "/oral_ai/static/js/main.0e7e05a3.js.map"
   },
   "entrypoints": [
-    "static/css/main.bc9ea77c.css",
-    "static/js/main.0c52a03b.js"
+    "static/css/main.e9348d48.css",
+    "static/js/main.0e7e05a3.js"
   ]
 }
