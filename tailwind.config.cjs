@@ -3,11 +3,11 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     fontFamily: {
-      sans: ["Inter", "sans-serif"],
+      sans: ["Poppins", "sans-serif"],
     },
     extend: {},
   },
-  plugins: [require("@tailwindcss/typography"), require("daisyui")],
+  plugins: [require("@tailwindcss/typography"), require('tailwind-scrollbar'), require("daisyui")],
   daisyui: {
     themes: [
       {

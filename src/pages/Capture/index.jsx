@@ -25,7 +25,7 @@ function App() {
     // https://tensorflowjsrealtimemodel.s3.au-syd.cloud-object-storage.appdomain.cloud/model.json
     const net = await tf.loadGraphModel(
       "https://tensorflowjsrealtimemodel.s3.au-syd.cloud-object-storage.appdomain.cloud/model.json"
-    ).then(setIsModelReady(true));
+    )
 
     //  Loop and detect hands
     setInterval(() => {
@@ -35,7 +35,10 @@ function App() {
 
   const triggerCamera = () => {
     setIsCameraClose(!isCameraClose);
-    runCoco();
+    setTimeout(() => {
+      setIsModelReady(!isModelReady);
+      runCoco();
+    }, 1000);
   }
 
   const detect = async (net) => {
@@ -111,7 +114,7 @@ function App() {
 
   return (
     <Navbar>
-      <div className="min-h-screen p-4 px-6">
+      <div className="min-h-screen p-4 px-6 scrollbar-thin scrollbar-thumb-base-200 scrollbar-track-zinc-400">
         <div className="flex flex-col lg:flex-row items-center justify-between">
           <section className="rounded">
             {
@@ -158,7 +161,7 @@ function App() {
               <button onClick={saveImageClick} className='btn btn-error btn-outline'>Delete</button>
             </div>
             <p className="text-lg font-semibold">Images History</p>
-            <div className="card bg-base-200 h-[500px] w-[480px] mr-12 p-4 overflow-y-scroll">
+            <div className="card bg-base-200 h-[500px] w-[480px] mr-12 p-4 overflow-y-scroll scrollbar-none">
               {imageTag.length > 0 ? (
                 imageTag.map((item, index) => (
                   <a key={index} href={item.dataUrl} download={`${new Date().getTime()}.jpg`}>
