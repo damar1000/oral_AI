@@ -45,10 +45,10 @@ const Login = () => {
       </Helmet>
 
       <div className='hero min-h-screen bg-base-200'>
-        <div className="hero-content flex-col gap-10">
+        <div className="hero-content prose lg:prose-lg flex-col gap-2">
           <div className="text-center">
-            <h1 className='text-5xl font-bold'>Login</h1>
-            <p className="py-6">
+            <h1 className='font-bold'>Login</h1>
+            <p className="py-2">
               Login now to get access to our services
             </p>
           </div>

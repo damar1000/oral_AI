@@ -5,7 +5,7 @@ import Capture from './pages/Capture'
 import Login from './pages/Login'
 import Register from './pages/Register'
 
-const App = () => {
+const App = () => {  
   return (
     <Routes>
       <Route index element={<Home />} />
