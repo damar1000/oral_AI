@@ -85,10 +85,14 @@ const Navbar = ({ children }) => {
                   <div className="dropdown dropdown-end">
                     <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                       <div className="w-10 rounded-full">
-                        <img src="https://placeimg.com/80/80/people" alt="avatar" />
+                        {/* <img src="https://placeimg.com/80/80/people" alt="avatar" /> */}
+                        <img src="https://i.pravatar.cc/300?img=37" alt="avatar" />
                       </div>
                     </label>
                     <ul tabIndex={0} className='menu menu-compact dropdown-content mt-3 p-2 shadow text-base-content bg-base-100 rounded-box w-52'>
+                      <div className='border-b mb-3 p-3'>
+                        <h5>{user.name}</h5>
+                      </div>
                       <li>
                         <Link to='/'>Profile</Link>
                         <button onClick={handleLogout}>Logout</button>
@@ -113,6 +117,14 @@ const Navbar = ({ children }) => {
           user ?
 
             <ul className='menu p-4 overflow-y-auto w-80 bg-base-100'>
+              <div className="flex items-center gap-3">
+                <div className="w-10 ml-3">
+                  {/* <img src="https://placeimg.com/80/80/people" alt="avatar" /> */}
+                  <img src="https://i.pravatar.cc/300?img=37" className='rounded-full' alt="avatar" />
+                </div>
+                <h5>{user.name}</h5>
+              </div>
+              <div className='divider'></div>
               <li className='rounded font-semibold'><Link to='/profile'>Profile</Link></li>
               <li className='rounded font-semibold'><button onClick={handleLogout}>Logout</button></li>
             </ul>

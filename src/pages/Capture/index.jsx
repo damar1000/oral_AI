@@ -165,7 +165,7 @@ function App() {
               {imageTag.length > 0 ? (
                 imageTag.map((item, index) => (
                   <a key={index} href={item.dataUrl} download={`${new Date().getTime()}.jpg`}>
-                    <img src={item.dataUrl} width={300} alt="images" className="rounded" />
+                    <img src={item.dataUrl} width={300} alt="images" className="rounded mt-4" />
                   </a>
                 ))
               )
