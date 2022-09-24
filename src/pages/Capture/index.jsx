@@ -107,9 +107,9 @@ function App() {
 
   useEffect(() => {
     // runCoco();
-    if(!localStorage.getItem('token')){
-      navigate('/login')
-    }
+    // if(!localStorage.getItem('token')){
+    //   navigate('/login')
+    // }
   });
 
   return (
@@ -158,15 +158,21 @@ function App() {
             <div className="flex gap-3">
               <button onClick={saveImageClick} className='btn btn-primary btn-outline'>Capture</button>
               <button onClick={saveImageClick} className='btn btn-secondary btn-outline'>Upload</button>
-              <button onClick={saveImageClick} className='btn btn-error btn-outline'>Delete</button>
             </div>
             <p className="text-lg font-semibold">Images History</p>
             <div className="card bg-base-200 h-[500px] w-[480px] mr-12 p-4 overflow-y-scroll scrollbar-none">
               {imageTag.length > 0 ? (
                 imageTag.map((item, index) => (
-                  <a key={index} href={item.dataUrl} download={`${new Date().getTime()}.jpg`}>
+                  <div className="flex">
+                    <a key={index} href={item.dataUrl} download={`${new Date().getTime()}.jpg`}>
                     <img src={item.dataUrl} width={300} alt="images" className="rounded mt-4" />
-                  </a>
+                    </a>
+                    <div className="flex flex-col items-center justify-center">
+                      <button className='btn btn-primary btn-outline'>Predict</button>
+                      <textarea>The predict will appear here!</textarea>
+                      <button className='btn btn-primary btn-outline'>Delete</button>
+                    </div>
+                  </div>
                 ))
               )
                 :

@@ -22,7 +22,7 @@ const index = () => {
           <div className="hero-content text-center prose lg:prose-lg text-neutral-content">
             <div className="max-m-md">
               <h1 className="mb-5 font-bold">Welcome to <span className='text-primary'>OralCam</span></h1>
-              <p className="mb-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos deserunt perferendis <br /> illum porro assumenda quisquam provident, delectus ex at, <br /> neque quibusdam molestias quidem tempora iusto necessitatibus, dolor repellat repudiandae dolore.</p>
+              <p className="mb-5">We utilize up to date dental technologies and techniques to help you achieve a smile that you can be proud of, <br/> we provide on-site oral health care services.</p>
               <Link to="/capture" className='btn btn-primary rounded-lg'>Check Now</Link>
             </div>
           </div>
