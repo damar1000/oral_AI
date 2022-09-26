@@ -16,7 +16,6 @@ const Navbar = ({ children }) => {
 
     logout()
       .then(res => {
-        console.log(res);
         toast.success('Logout Success!')
         localStorage.removeItem('token')
         localStorage.removeItem('user')
@@ -35,10 +34,8 @@ const Navbar = ({ children }) => {
         .then(res => {
           localStorage.setItem('user', JSON.stringify(res.data))
           setUser(res.data)
-          console.log(res);
         })
         .catch(err => {
-          console.log(err);
         })
     } else {
       setUser(null)
@@ -90,7 +87,7 @@ const Navbar = ({ children }) => {
                       </div>
                     </label>
                     <ul tabIndex={0} className='menu menu-compact dropdown-content mt-3 p-2 shadow text-base-content bg-base-100 rounded-box w-52'>
-                      <div className='border-b mb-3 p-3'>
+                      <div className='border-b border-primary mb-3 p-3'>
                         <h5>{user.name}</h5>
                       </div>
                       <li>

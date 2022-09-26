@@ -45,3 +45,19 @@ export const uploadImage = async (image) => {
     user_id: JSON.parse(localStorage.getItem("user")).user_id
   });
 }
+
+export const getImageHistory = async () => {
+  return await baseService.get("/user-history", {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("token")}`
+    }
+  })
+}
+
+export const getImages = async id => {
+  return await baseService.get(`/user-history/${id}`, {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("token")}`
+    }
+  })
+}
