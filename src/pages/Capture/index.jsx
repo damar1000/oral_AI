@@ -37,7 +37,7 @@ function App() {
     setIsCameraClose(!isCameraClose);
     setTimeout(() => {
       setIsModelReady(!isModelReady);
-      runCoco();
+      // runCoco();
     }, 1000);
   }
 
@@ -167,10 +167,10 @@ function App() {
                     <a key={index} href={item.dataUrl} download={`${new Date().getTime()}.jpg`}>
                     <img src={item.dataUrl} width={300} alt="images" className="rounded mt-4" />
                     </a>
-                    <div className="flex flex-col items-center justify-center">
+                    <div className="flex flex-col items-center justify-center p-3 ml-1 gap-3 text-center">
                       <button className='btn btn-primary btn-outline'>Predict</button>
-                      <textarea>The predict will appear here!</textarea>
-                      <button className='btn btn-primary btn-outline'>Delete</button>
+                      <h1>Predict will appear here!</h1>
+                      <button className='btn btn-error btn-outline'>Delete</button>
                     </div>
                   </div>
                 ))

@@ -1,0 +1,35 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: sans-serif;
+}
+
+:root
+{
+	/* @apply text-primary;
+	--blue: #287bff;
+	--white: #fff;
+	--black1: #222;
+	--black2: #999; */
+}
+
+.sidebar
+{
+	min-height: 100vh;
+	overflow-x: hidden;
+}
+
+.sidebar-brand
+{
+	position: relative;
+	width: 100%;
+}
+
+.sidebar-menu
+{
+	position: fixed;
+	width: 300px;
+	height: 100%;
+	background: var();
+}
