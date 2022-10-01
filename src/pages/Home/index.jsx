@@ -18,15 +18,22 @@ const index = () => {
       </Helmet>
       <Navbar>
         <div className="hero min-h-screen" style={heroStyle}>
-          <div className="hero-overlay bg-opacity-70"></div>
-          <div className="hero-content text-center prose lg:prose-lg text-neutral-content">
+          <div className="hero-overlay bg-opacity-70 bg-[#212121]"></div>
+          <div className="hero-content text-center prose lg:prose-lg text-white">
             <div className="max-m-md">
               <h1 className="mb-5 font-bold">Welcome to <span className='text-primary'>OralCam</span></h1>
-              <p className="mb-5">We utilize up to date dental technologies and techniques to help you achieve a smile that you can be proud of, <br/> we provide on-site oral health care services.</p>
+              <p className="mb-5">We utilize up to date dental technologies and techniques to help you achieve a smile that you can be proud of, <br/> we provide on-site oral health care services. This Smart intraoral camera may be used as tool for early diagnosis of oral disease. <br/>The definitive diagnosis should be made by conducting the supporting investigation such as histopathology evaluation and microbilogical test. <br/>This Smart oral camera was funded by Kedaireka, Matching Fund from Kemendikbudristek, Indonesia.</p>
               <Link to="/capture" className='btn btn-primary rounded-lg'>Check Now</Link>
             </div>
           </div>
-          <div className="text-center text-xs lg:text-base text-neutral-content absolute bottom-4">
+          <div className="text-center text-xs lg:text-base text-white absolute bottom-4">
+            <p>Supported and Powered By</p>
+            <div className='flex gap-4 justify-center items-center p-3'>
+              <img src={'https://1.bp.blogspot.com/-Y2jPw7RY2q0/X8Jj5-4mRYI/AAAAAAAAK3E/oFUKwrCP0YoGxLNK6-cAW0Q1toCJZGMywCLcBGAsYHQ/s0/Universitas_Baiturrahmah.png'} width={50}></img>
+              <img src={'../src/assets/images/universitas-lancang-kuning.png'} width={50}></img>
+              <img src={'../src/assets/images/UMYLOGO.png'} width={100}></img>
+              <img src={'https://kedaireka.id/SVG/logo.svg'} width={100}></img>
+            </div>
             <p>&copy; {new Date().getFullYear()} OralCam Dev</p>
           </div>
         </div>
