@@ -9,6 +9,7 @@ import { BeatLoader } from "react-spinners";
 // e.g. import { drawRect } from "./utilities";
 import { drawRect } from "../../utilities/aiUtilities";
 import Navbar from "../../components/Navbar";
+import { model } from "@tensorflow/tfjs";
 
 function App() {
   const [imageTag, setImageTag] = useState([]);
@@ -16,32 +17,46 @@ function App() {
   const [isCameraClose, setIsCameraClose] = useState(true);
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
+  const imageRef = useRef(null);
   const navigate = useNavigate();
 
-  // Main function
-  const runCoco = async () => {
-    // 3. TODO - Load network
-    // e.g. const net = await cocossd.load();
-    // https://tensorflowjsrealtimemodel.s3.au-syd.cloud-object-storage.appdomain.cloud/model.json
-    const net = await tf.loadGraphModel(
-      "https://tensorflowjsrealtimemodel.s3.au-syd.cloud-object-storage.appdomain.cloud/model.json"
-    )
+  // // Main function
+  // const runCoco = async () => {
+  //   // 3. TODO - Load network
+  //   // e.g. const net = await cocossd.load();
+  //   // https://tensorflowjsrealtimemodel.s3.au-syd.cloud-object-storage.appdomain.cloud/model.json
+  //   const net = await tf.loadGraphModel(
+  //     // "https://tensorflowjsrealtimemodel.s3.au-syd.cloud-object-storage.appdomain.cloud/model.json"
+  //     "http://ai.suryaformosa.com/oralai/model.json"
+  //   )
 
-    //  Loop and detect hands
-    setInterval(() => {
-      detect(net);
-    }, 16.7);
-  };
+  //   //  Loop and detect hands
+  //   setInterval(() => {
+  //     detect(net);
+  //   }, 16.7);
+  // };
+
+  const loadModel = async () => {
+    let model = null
+    // Load the model.
+    tf.ready().then(() => {
+      model = tf.loadLayersModel('http://ai.suryaformosa.com/oralai/model.json');
+      return model
+    });
+    console.log("Model loaded");
+    setIsModelReady(true);
+  }
 
   const triggerCamera = () => {
     setIsCameraClose(!isCameraClose);
     setTimeout(() => {
       setIsModelReady(!isModelReady);
-      // runCoco();
     }, 1000);
   }
 
-  const detect = async (net) => {
+  const detect = async (screenshot) => {
+    const model = await tf.loadLayersModel('http://ai.suryaformosa.com/oralai/model.json');
+
     // Check data is available
     if (
       typeof webcamRef.current !== "undefined" &&
@@ -62,12 +77,13 @@ function App() {
       canvasRef.current.height = videoHeight;
 
       // 4. TODO - Make Detections
-      const img = tf.browser.fromPixels(video);
+      const img = tf.browser.fromPixels(screenshot);
       const resized = tf.image.resizeBilinear(img, [640, 480]);
       const casted = resized.cast("int32");
       const expanded = casted.expandDims(0);
-      const obj = await net.executeAsync(expanded);
+      const obj = model.predict(expanded);
       // console.log(obj)
+      alert(obj)
 
       const boxes = await obj[1].array();
       const classes = await obj[2].array();
@@ -105,11 +121,19 @@ function App() {
     console.log(imageTag);
   };
 
+  const predictImage = async (imageData) => {
+    let image = new Image();
+    image.src = imageData;
+    detect(image);
+    console.log('Predicted');
+  }
+
   useEffect(() => {
     // runCoco();
     // if(!localStorage.getItem('token')){
     //   navigate('/login')
     // }
+    tf.ready()
   });
 
   return (
@@ -165,10 +189,10 @@ function App() {
                 imageTag.map((item, index) => (
                   <div className="flex">
                     <a key={index} href={item.dataUrl} download={`${new Date().getTime()}.jpg`}>
-                    <img src={item.dataUrl} width={300} alt="images" className="rounded mt-4" />
+                    <img src={item.dataUrl} ref={imageRef} width={300} alt="images" className="rounded mt-4" />
                     </a>
                     <div className="flex flex-col items-center justify-center p-3 ml-1 gap-3 text-center">
-                      <button className='btn btn-primary btn-outline'>Predict</button>
+                      <button className='btn btn-primary btn-outline' onClick={predictImage(item.dataUrl)}>Predict</button>
                       <h1>Predict will appear here!</h1>
                       <button className='btn btn-error btn-outline'>Delete</button>
                     </div>
