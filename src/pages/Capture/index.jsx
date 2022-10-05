@@ -37,7 +37,7 @@ function App() {
     setIsCameraClose(!isCameraClose);
     setTimeout(() => {
       setIsModelReady(!isModelReady);
-      // runCoco();
+      runCoco();
     }, 1000);
   }
 

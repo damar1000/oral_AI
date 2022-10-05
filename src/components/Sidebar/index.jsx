@@ -1,10 +1,13 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
 import Navbar from '../../components/Navbar'
 import './profile.style.css'
+import {AiFillHome, AiFillProfile} from 'react-icons/ai'
+
 
 const index = () => {
+	
 	return (
     <div className='prose lg:prose-lg'>
       <Helmet>
@@ -36,10 +39,27 @@ const index = () => {
 							</li>
 						</ul>
 					</div>
+					{/* main */}
+					{/* <div class="main">
+						<div class="topbar">
+							<div class="toggle">
+									<AiFillProfile/>
+							</div>
+						</div>
+					</div> */}
 				</div>
-				
     </div>
   )
+	// useEffect(() => {
+	// 	let list = document.querySelectorAll('.sidebar-menu li');
+	// 	function activeLink(){
+	// 		list.forEach((item)=>
+	// 		item.classList.remove(''));
+	// 		this.classList.add('hovered');
+	// 	}
+	// 	list.forEach((item)=>
+	// 	item.addEventListener('mouseover',activeLink));
+	// });
   
 }
 
