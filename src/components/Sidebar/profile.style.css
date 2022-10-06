@@ -6,7 +6,7 @@
 }
 .title 
 {
-	color: #222;
+	@apply text-base-content font-bold
 }
 .icon
 {
@@ -40,13 +40,7 @@
 
 .sidebar-menu
 {
-	position: fixed;
-	width: 300px;
-	height: 100%;
-	background: var(--white);
-	border-left: 10px solid #488FB1;
-	transition: 0.5s;
-	overflow: hidden;
+	@apply fixed w-[300px] h-full bg-base-100 border-l-[10px] border-[#488FB1] transition overflow-hidden;
 }
 /* .sidebar-menu.active
 {
@@ -74,12 +68,7 @@
 }
 .sidebar-menu ul li a
 {
-	position: relative;
-	display: block;
-	width: 100%;
-	display: flex;
-	text-decoration: none;
-	color: var(#488FB1);
+	@apply relative flex w-full no-underline font-bold items-center
 }
 .sidebar-menu ul li:hover a,
 .sidebar-menu ul li.hovered a
@@ -88,22 +77,11 @@
 }
 .sidebar-menu ul li a .icon
 {
-	position: relative;
-	display: block;
-	min-width: 60px;
-	height: 60px;
-	line-height: 70px;
-	text-align: center;
+	@apply relative block h-full text-xl w-14
 }
 .sidebar-menu ul li a .title
 {
-	position: relative;
-	display: block;
-	padding: 0 10px;
-	height: 60px;
-	line-height: 60px;
-	text-align: start;
-	white-space: nowrap;
+	@apply p-3
 }
 /* curver outside */
 .sidebar-menu ul li:hover a::before,
