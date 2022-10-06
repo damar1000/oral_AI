@@ -4,10 +4,6 @@ import * as tf from "@tensorflow/tfjs";
 import Webcam from "react-webcam";
 import { useNavigate } from "react-router-dom";
 import { BeatLoader } from "react-spinners";
-// import { nextFrame } from "@tensorflow/tfjs";
-// 2. TODO - Import drawing utility here
-// e.g. import { drawRect } from "./utilities";
-// import { drawRect } from "../../utilities/aiUtilities";
 import Navbar from "../../components/Navbar";
 import { loadModel } from "./loadModel";
 
@@ -32,58 +28,30 @@ function App() {
     const resized = tf.image.resizeBilinear(img, [640, 480]);
     const casted = resized.cast("int32");
     const expanded = casted.expandDims(0);
-    // const obj = model.predict(expanded);
     const obj = model.predict(expanded);
-    // console.log(obj)
-    alert(obj.cast("int32").dataSync());
+    let predicted = obj.argMax(1).dataSync()[0];
 
-    // // Check data is available
-    // if (
-    //   typeof webcamRef.current !== "undefined" &&
-    //   webcamRef.current !== null &&
-    //   webcamRef.current.video.readyState === 4
-    // ) {
-    //   // Get Video Properties
-    //   const videoWidth = webcamRef.current.video.videoWidth;
-    //   const videoHeight = webcamRef.current.video.videoHeight;
-
-    //   // Set video width
-    //   webcamRef.current.video.width = videoWidth;
-    //   webcamRef.current.video.height = videoHeight;
-
-    //   // Set canvas height and width
-    //   canvasRef.current.width = videoWidth;
-    //   canvasRef.current.height = videoHeight;
-
-      // 4. TODO - Make Detections
-
-      // const boxes = await obj[1].array();
-      // const classes = await obj[2].array();
-      // const scores = await obj[4].array();
-
-      // Draw mesh
-      // const ctx = canvasRef.current.getContext("2d");
-
-      // // 5. TODO - Update drawing utility
-      // // drawSomething(obj, ctx)
-      // requestAnimationFrame(() => {
-      //   drawRect(
-      //     boxes[0],
-      //     classes[0],
-      //     scores[0],
-      //     0.8,
-      //     videoWidth,
-      //     videoHeight,
-      //     ctx
-      //   );
-      // });
-
-      // tf.dispose(img);
-      // tf.dispose(resized);
-      // tf.dispose(casted);
-      // tf.dispose(expanded);
-      // tf.dispose(obj);
-    // }
+    if(predicted === 0){
+      alert("Predicted : Aphtous Stomatitis");
+    } 
+    else if(predicted === 1){
+      alert("Predicted : Gingivitis");
+    }
+    else if(predicted === 2){
+      alert("Predicted : Leukoplakia");
+    }
+    else if(predicted === 3){
+      alert("Predicted : Healthy");
+    }
+    else if(predicted === 4){
+      alert("Predicted : Oral Cancer");
+    }
+    else if(predicted === 5){
+      alert("Predicted : Periodontitis");
+    }
+    else if(predicted === 6){
+      alert("Predicted : Abrasion");
+    }
   };
 
   const saveImageClick = async () => {
@@ -96,12 +64,9 @@ function App() {
     let image = new Image();
     image.src = imageData;
     detect(image);
-    console.log("Predicted");
-    return null;
   };
 
   useEffect(() => {
-    // runCoco();
     // if(!localStorage.getItem('token')){
     //   navigate('/login')
     // }
