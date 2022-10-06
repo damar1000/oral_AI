@@ -4,14 +4,26 @@
 	box-sizing: border-box;
 	font-family: sans-serif;
 }
+.title 
+{
+	color: #222;
+}
+.icon
+{
+	color: #222;
+	position: fixed;
+	width: 30px;
+	height: 30px;
+	line-height: 10%;
+}
 
 :root
 {
-	/* @apply text-primary;
+	@apply text-primary;
 	--blue: #287bff;
 	--white: #fff;
 	--black1: #222;
-	--black2: #999; */
+	--black2: #999;
 }
 
 .sidebar
@@ -31,5 +43,114 @@
 	position: fixed;
 	width: 300px;
 	height: 100%;
-	background: var();
+	background: var(--white);
+	border-left: 10px solid #488FB1;
+	transition: 0.5s;
+	overflow: hidden;
+}
+/* .sidebar-menu.active
+{
+
+} */
+.sidebar-menu ul
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+.sidebar-menu ul li
+{
+	position: relative;
+	width: 100%;
+	list-style: none;
+	border-top-left-radius: 30px;
+	border-bottom-left-radius: 30px;
+}
+.sidebar-menu ul li:hover,
+.sidebar-menu ul li:hover
+{
+	background: #488FB1;
+}
+.sidebar-menu ul li a
+{
+	position: relative;
+	display: block;
+	width: 100%;
+	display: flex;
+	text-decoration: none;
+	color: var(#488FB1);
+}
+.sidebar-menu ul li:hover a,
+.sidebar-menu ul li.hovered a
+{
+	color: #488FB1;
+}
+.sidebar-menu ul li a .icon
+{
+	position: relative;
+	display: block;
+	min-width: 60px;
+	height: 60px;
+	line-height: 70px;
+	text-align: center;
+}
+.sidebar-menu ul li a .title
+{
+	position: relative;
+	display: block;
+	padding: 0 10px;
+	height: 60px;
+	line-height: 60px;
+	text-align: start;
+	white-space: nowrap;
+}
+/* curver outside */
+.sidebar-menu ul li:hover a::before,
+.sidebar-menu ul li.hovered a::before
+{
+	content: '';
+	position: absolute;
+	right: 0;
+	top: -50px;
+	width: 50px;
+	height: 50px;
+	background: transparent;
+	border-radius: 50%;
+	box-shadow: 25px -25px 0 10px var(#488FB1);
+	pointer-events: none;
+}
+.sidebar-menu ul li:hover a::after,
+.sidebar-menu ul li.hovered a::after
+{
+	content: '';
+	position: absolute;
+	right: 0;
+	bottom: -50px;
+	width: 50px;
+	height: 50px;
+	background: transparent;
+	border-radius: 50%;
+	box-shadow: 25px -25px 0 10px var(#488FB1);
+	pointer-events: none;
+}
+
+.main
+{
+	position: absolute;
+	width: calc(100% - 300px);
+	left: 300px;
+	min-height: 100vh;
+	background: #fff;
+	transition: 0.5s;
+}
+
+.topbar
+{
+	width: 100%;
+	height: 60px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 10px;
 }
