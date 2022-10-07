@@ -5,6 +5,7 @@ import Webcam from "react-webcam";
 import { useNavigate } from "react-router-dom";
 import { BeatLoader } from "react-spinners";
 import Navbar from "../../components/Navbar";
+import { toast } from "react-toastify";
 import { loadModel } from "./loadModel";
 
 function App() {
@@ -32,25 +33,25 @@ function App() {
     let predicted = obj.argMax(1).dataSync()[0];
 
     if(predicted === 0){
-      alert("Predicted : Aphtous Stomatitis");
+      toast.success("Predicted : Aphtous Stomatitis");
     } 
     else if(predicted === 1){
-      alert("Predicted : Gingivitis");
+      toast.success("Predicted : Gingivitis");
     }
     else if(predicted === 2){
-      alert("Predicted : Leukoplakia");
+      toast.success("Predicted : Leukoplakia");
     }
     else if(predicted === 3){
-      alert("Predicted : Healthy");
+      toast.success("Predicted : Healthy");
     }
     else if(predicted === 4){
-      alert("Predicted : Oral Cancer");
+      toast.success("Predicted : Oral Cancer");
     }
     else if(predicted === 5){
-      alert("Predicted : Periodontitis");
+      toast.success("Predicted : Periodontitis");
     }
     else if(predicted === 6){
-      alert("Predicted : Abrasion");
+      toast.success("Predicted : Abrasion");
     }
   };
 
@@ -154,7 +155,6 @@ function App() {
                       >
                         Predict
                       </button>
-                      <h1>Predict will appear here!</h1>
                       <button className="btn btn-error btn-outline">
                         Delete
                       </button>
