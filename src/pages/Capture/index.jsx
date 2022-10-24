@@ -70,7 +70,12 @@ function App() {
     setImageTag([...imageTag, { dataUrl: imageSrc }]);
     console.log(imageTag);
   };
-
+  const chooseImageClick = (e) => {
+    let imageSrc = URL.createObjectURL(e.target.files[0])
+    setImageTag([...imageTag, { dataUrl: imageSrc }]);
+    console.log(imageTag);
+  };
+  
   const handleServiceRemove = async (index) => {
     const list = [...imageTag];
     list.splice(index, 1);
@@ -140,6 +145,8 @@ function App() {
               >
                 Capture
               </button>
+              <input type="file" id="actual-btn"hidden={true} onChange={chooseImageClick}/>
+              <label for="actual-btn" className="btn btn-secondary btn-outline">Upload</label>
               <button
                 onClick={saveImageClick}
                 className="btn btn-secondary btn-outline"

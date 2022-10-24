@@ -2,8 +2,8 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
 import Navbar from '../../components/Navbar'
-import logounilak from '../src/assets/images/universitas-lancang-kuning.png'
-import logoumy from '../src/assets/images/UMYLOGO.png'
+import logounilak from '/src/assets/images/universitas-lancang-kuning.png'
+import logoumy from '/src/assets/images/UMYLOGO.png'
 
 const heroStyle = {
   backgroundImage: `url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80')`,

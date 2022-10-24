@@ -117,8 +117,8 @@ const Navbar = ({ children }) => {
             </ul>
             :
             <ul className='menu p-4 overflow-y-auto w-80 bg-base-100'>
-              <li className='rounded font-semibold'><Link to='/login'>Login</Link></li>
-              <li className='rounded font-semibold'><Link to='/register'>Register</Link></li>
+              {/*<li className='rounded font-semibold'><Link to='/login'>Login</Link></li>
+              <li className='rounded font-semibold'><Link to='/register'>Register</Link></li>*/}
             </ul>
         }
       </div>
