@@ -88,8 +88,8 @@ const Navbar = ({ children }) => {
                   </div>
                   :
                   <ul className='menu menu-horizontal text-base-content'>
-                    <li className='rounded font-semibold'><Link to='/login'>Login</Link></li>
-                    <li className='rounded font-semibold'><Link to='/register'>Register</Link></li>
+                    {/*<li className='rounded font-semibold'><Link to='/login'>Login</Link></li>
+                    <li className='rounded font-semibold'><Link to='/register'>Register</Link></li>*/}
                   </ul>
               }
             </div>

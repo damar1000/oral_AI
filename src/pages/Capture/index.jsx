@@ -147,12 +147,12 @@ function App() {
               </button>
               <input type="file" id="actual-btn"hidden={true} onChange={chooseImageClick}/>
               <label for="actual-btn" className="btn btn-secondary btn-outline">Upload</label>
-              <button
+              {/*<button
                 onClick={saveImageClick}
                 className="btn btn-secondary btn-outline"
               >
                 Upload
-              </button>
+                  </button>*/}
             </div>
             <p className="text-lg font-semibold">Images History</p>
             <div className="card bg-base-200 h-[500px] w-[480px] mr-12 p-4 overflow-y-scroll scrollbar-none">
